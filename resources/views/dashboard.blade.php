@@ -29,6 +29,7 @@
                             <label>Total products in stock:</label>
                                 {{$products->count()}}
 
+                                <button  onclick="window.location.href = '/products'" class="mb-3 btn btn-primary" style="float:right" type="submit">Add new product</button>
                         </div>
 
                         {{-- Table strucure, from DashboardController. --}}

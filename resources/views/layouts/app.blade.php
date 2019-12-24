@@ -83,9 +83,6 @@
                                 <a class="dropdown-item" href="{{ route('dashboard') }}">
                                         Dashboard
                                     </a>
-                                <a class="dropdown-item" href="{{ route('products') }}">
-                                        Products
-                                    </a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
