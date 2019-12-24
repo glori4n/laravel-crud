@@ -18,31 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-    <style>
-        #products {
-          font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-          border-collapse: collapse;
-          width: 100%;
-        }
-        
-        #products td, #products th {
-          border: 1px solid #ddd;
-          padding: 8px;
-        }
-        
-        #products tr:nth-child(even){background-color: #f2f2f2;}
-        
-        #products tr:hover {background-color: #ddd;}
-        
-        #products th {
-          padding-top: 12px;
-          padding-bottom: 12px;
-          text-align: left;
-          background-color: black;
-          color: white;
-        }
-        </style>
+    
 </head>
 <body>
     <div id="app">

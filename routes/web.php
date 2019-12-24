@@ -20,9 +20,12 @@ Route::middleware('auth')->group(function (){
     // GET Routes.
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
     Route::get('/products', 'ProductController@read')->name('products');
+    Route::get('/product-edit/{id}', 'ProductController@edit');
+    Route::get('/product-delete/{id}', 'ProductController@delete');
 
     // POST Routes.
     Route::post('/addproduct', 'ProductController@create');
+    Route::post('/editproduct/{id}', 'ProductController@update');
 
 });
 

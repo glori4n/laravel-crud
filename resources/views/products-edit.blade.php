@@ -23,13 +23,17 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                        <form method="POST" action="/addproduct">
+                    <form method="POST" action="/editproduct/{{$product->id}}">
                             @csrf
+                            <label>Product ID:</label>
+                            {{$id}}
+                            <br>
                             <label>Product Name:</label><br>
-                            <input type="text" name="name"><br><br>
-
+                        <input type="text" name="name" value="{{$product->name}}">
+                        <br>
+                        <br>
                             <label>Product Description:</label><br>
-                            <textarea style="" name="description" cols="30" rows="4"></textarea><br>
+                        <textarea name="description" cols="30" rows="4">{{$product->description}}</textarea><br>
                             <button onclick="window.location.href = '/dashboard'" class="mt-2 btn btn-warning" style="float:left" type="button">Go Back</button>
                             <button class="mt-2 btn btn-primary" style="float:right" type="submit">Submit</button>
                         </form>

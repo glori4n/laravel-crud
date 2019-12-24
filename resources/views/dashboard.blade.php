@@ -23,6 +23,14 @@
                         </div>
                         @endif
 
+                        {{-- If any message is detected, it'll show up here, then be deleted as soon as the page reloads. --}}
+                        @if(Session::has('message'))
+                        <div class="alert alert-success">
+                            {{ Session::get('message') }}
+                            {{ Session::forget('message') }}
+                        </div>
+                        @endif
+
                         {{-- Counter for total products. --}}
                         <div style="font-size:17px">
 
@@ -38,7 +46,8 @@
                                 <th>ID</th>
                                 <th>Product Name</th>
                                 <th>Description</th>
-                                <th>Created At</th>
+                                <th>Updated At</th>
+                                <th>Actions</th>
                             </tr>
 
                             @foreach ($products as $product)
@@ -46,7 +55,11 @@
                                     <td>{{$product->id}}</td>
                                     <td>{{$product->name}}</td>
                                     <td>{{$product->description}}</td>
-                                    <td>{{$product->created_at}}</td>
+                                    <td>{{$product->updated_at}}</td>
+                                    <td style="white-space: nowrap">
+                                        <a href="/product-edit/{{$product->id}}" class="btn btn-warning btn-xs">Edit</a>
+                                        <a href="/product-delete/{{$product->id}}" class="btn btn-danger btn-xs">Delete</a>
+                                    </td>
                                 </tr>
                             @endforeach
                         </table>
