@@ -17,13 +17,25 @@ Route::get('/', function () {
 
 Route::middleware('auth')->group(function (){
 
-    // GET Routes.
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+    // GET Users
+    Route::get('/users', 'UserController@read')->name('users');
+    Route::get('/users-list', 'UserController@index')->name('users-list');
+    Route::get('/user-edit/{id}', 'UserController@edit');
+    Route::get('/user-delete/{id}', 'UserController@delete');
+
+    // POST Users.
+    Route::post('/adduser', 'UserController@create');
+    Route::post('/edituser/{id}', 'UserController@update');
+
+    // GET Products
     Route::get('/products', 'ProductController@read')->name('products');
+    Route::get('/products-list', 'ProductController@index')->name('products-list');
     Route::get('/product-edit/{id}', 'ProductController@edit');
     Route::get('/product-delete/{id}', 'ProductController@delete');
 
-    // POST Routes.
+    // POST Products.
     Route::post('/addproduct', 'ProductController@create');
     Route::post('/editproduct/{id}', 'ProductController@update');
 

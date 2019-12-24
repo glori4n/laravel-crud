@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\User;
 
 class DashboardController extends Controller
 {
@@ -24,9 +25,8 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        // $petani = DB::table('tbl_user')->get();
         $products = Product::all();
-        // dd($products);
-        return view('dashboard', compact('products'));
+        $users = User::all();
+        return view('dashboard', compact('products', 'users'));
     }
 }

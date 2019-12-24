@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header"><span><i class="fa fa-users"></i></span> Users List</div>
 
                     <div class="card-body">
 
@@ -33,22 +33,34 @@
 
                         {{-- Counter for total products. --}}
                         <div style="font-size:17px">
-                            <span><i class="fa fa-users"></i></span>
+
                             <label>Total users:</label>
                                 {{$users->count()}}
-                                
-                                <button onclick="window.location.href = '/users-list'" class="mb-3 btn btn-primary" style="float:right" type="submit">Users list</button>
                         </div>
-                        <br>
 
-                        {{-- Counter for total products. --}}
-                        <div style="font-size:17px">
-                            <span><i class="fa fa-pencil"></i></span>
+                        {{-- Table strucure, from DashboardController. --}}
+                        <table id="products">
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>E-mail</th>
+                                <th>Updated At</th>
+                                <th>Actions</th>
+                            </tr>
 
-                            <label>Total products in stock:</label>
-                                {{$products->count()}}
-                                <button  onclick="window.location.href = '/products-list'" class="mb-3 btn btn-primary" style="float:right" type="submit">Products list</button>
-                        </div>
+                            @foreach ($users as $user)
+                                <tr>
+                                    <td>{{$user->id}}</td>
+                                    <td>{{$user->name}}</td>
+                                    <td>{{$user->email}}</td>
+                                    <td>{{$user->updated_at}}</td>
+                                    <td style="white-space: nowrap">
+                                        <a href="/user-edit/{{$user->id}}" class="btn btn-warning btn-xs">Edit</a>
+                                        <a href="/user-delete/{{$user->id}}" class="btn btn-danger btn-xs">Delete</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </table>
                 </div>
             </div>
         </div>

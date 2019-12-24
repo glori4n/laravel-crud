@@ -8,6 +8,11 @@ use Session;
 
 class ProductController extends Controller
 {
+    public function index()
+    {
+        $products = Product::all();
+        return view('products.show', compact('products'));
+    }
     public function create(Request $request)
     {
         $validatedData = $request->validate([
@@ -20,17 +25,17 @@ class ProductController extends Controller
             'description' => $validatedData['description'],
         ]);
 
-        $message = 'Product '.$validatedData['name'].' created successfully.';
+        $message = 'Product: '.$validatedData['name'].' created successfully.';
         session(['message' => $message]);
 
-        return redirect('dashboard');
+        return redirect('products-list');
     }
 
     public function read()
     {
 
         $products = Product::all()->count();
-        return view('products', compact('products'));
+        return view('products.add', compact('products'));
 
     }
 
@@ -40,7 +45,7 @@ class ProductController extends Controller
         $id = $request->id;
         $product = Product::where('id', $id)->first();
         
-        return view('products-edit', compact('id', 'product'));
+        return view('products.edit', compact('id', 'product'));
 
     }
 
@@ -58,10 +63,10 @@ class ProductController extends Controller
         $product->description = $validatedData['description'];
         $product->update();
 
-        $message = 'Product '.$id.' updated successfully.';
+        $message = 'Product with the ID:'.$id.' updated successfully.';
         session(['message' => $message]);
         
-        return redirect('dashboard');
+        return redirect('products-list');
 
     }
 
@@ -70,9 +75,9 @@ class ProductController extends Controller
         $product = Product::find($id);
         $product->delete();
 
-        $message = 'Product '.$product->name.' deleted successfully.';
+        $message = 'Product: '.$product->name.' deleted successfully.';
         session(['message' => $message]);
         
-        return redirect('dashboard');
+        return redirect('products-list');
     }
 }

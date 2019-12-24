@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Add new products</div>
+                <div class="card-header">Edit product {{$id}}</div>
 
                 @if ($errors->any())
                 <div class="alert alert-danger">
@@ -25,9 +25,6 @@
                     @endif
                     <form method="POST" action="/editproduct/{{$product->id}}">
                             @csrf
-                            <label>Product ID:</label>
-                            {{$id}}
-                            <br>
                             <label>Product Name:</label><br>
                         <input type="text" name="name" value="{{$product->name}}">
                         <br>

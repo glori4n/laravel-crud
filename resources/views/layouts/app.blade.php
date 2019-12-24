@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     
 </head>
 <body>
@@ -56,8 +57,16 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('dashboard') }}">
+                                    <a class="dropdown-item" href="{{ route('dashboard') }}">
                                         Dashboard
+                                    </a>
+
+                                    <a class="dropdown-item" href="{{ route('users-list') }}">
+                                        Users
+                                    </a>
+                                    
+                                    <a class="dropdown-item" href="{{ route('products-list') }}">
+                                        Products
                                     </a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -80,6 +89,7 @@
         <main class="py-4">
             @yield('content')
         </main>
+        <footer style="text-align:center">This system was made by © Glori4n (<a href="https://glori4n.com" target="new">https://glori4n.com</a>)</footer>
     </div>
 </body>
 </html>

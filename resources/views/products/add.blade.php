@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Add new products</div>
+                <div class="card-header">Add new product</div>
 
                 @if ($errors->any())
                 <div class="alert alert-danger">
