@@ -105,7 +105,7 @@ CREATE TABLE `products` (
   `updated_at` timestamp NOT NULL,
   `created_at` timestamp NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -114,7 +114,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'Chocolate','Dairy product, sweet and tasty.','2019-12-23 00:46:21','2019-12-23 00:46:21'),(2,'Milk','Dairy product, straight from the farm.','2019-12-23 01:20:38','2019-12-23 01:20:38'),(3,'Cereal','Chocolate-flavored flakes.','2019-12-23 01:23:35','2019-12-23 01:23:35');
+INSERT INTO `products` VALUES (8,'Gourd Cheese','A rat\'s favorite!','2019-12-24 13:24:40','2019-12-24 13:24:40'),(9,'Pencil','Common product.','2019-12-24 13:54:33','2019-12-24 13:54:33'),(10,'Necklace','A worthless product.','2019-12-24 13:57:27','2019-12-24 13:57:27'),(11,'Onions','Fresh produce.','2019-12-24 14:02:45','2019-12-24 14:02:45'),(12,'Bacon','Tasty.','2019-12-24 14:24:06','2019-12-24 14:24:06');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -136,7 +136,7 @@ CREATE TABLE `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -145,7 +145,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'user1','user1@mail.com',NULL,'$2y$10$qdjlf586lW0nkzaLv5aaZ.kPCbOWpqv4cFoNGXnHggQNDLucLgkLy',NULL,'2019-12-21 22:22:20','2019-12-21 22:22:20');
+INSERT INTO `users` VALUES (1,'admin','admin@mail.com',NULL,'$2y$10$qdjlf586lW0nkzaLv5aaZ.kPCbOWpqv4cFoNGXnHggQNDLucLgkLy',NULL,'2019-12-21 22:22:20','2019-12-24 14:22:52'),(5,'user1','user1@mail.com',NULL,'$2y$10$X.z1oPKewIHXySxbQ1pGzugGl3xdN5ZHh1jiLMHdF4MHgy0/6bkGO',NULL,'2019-12-24 14:24:55','2019-12-24 14:24:55'),(6,'user2','user2@mail.com',NULL,'$2y$10$A0/sNBbCUNkxIcBLHqzYOOCk0Xo9I2ninNTKAX8hDz2jDTRnRC0y6',NULL,'2019-12-24 14:25:23','2019-12-24 14:25:23');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -158,4 +158,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-12-23  1:35:08
+-- Dump completed on 2019-12-24 14:49:19
