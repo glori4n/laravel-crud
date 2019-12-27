@@ -6,7 +6,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"><span><i class="fa fa-pencil"></i></span> Products List</div>
+                <div class="card-header">
+                    <span><i class="fa fa-pencil"></i> Products List</span>
+                    <button onclick="window.location.href = '/dashboard'" class="mt-2 btn btn-warning" style="float:right" type="button">Go Back</button>
+                </div>
 
                     <div class="card-body">
 

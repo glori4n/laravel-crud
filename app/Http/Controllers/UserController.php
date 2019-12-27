@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use app\User;
+use App\User;
+use App\Role;
 
 class UserController extends Controller
 {
@@ -44,8 +45,10 @@ class UserController extends Controller
 
         $id = $request->id;
         $user = User::where('id', $id)->first();
+        $roles = Role::all();
+        $user_role = Role::where('name', $user->role_id)->first();
         
-        return view('users.edit', compact('id', 'user'));
+        return view('users.edit', compact('id', 'user', 'role', 'user_role'));
 
     }
 
