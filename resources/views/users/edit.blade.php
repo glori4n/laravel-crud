@@ -31,13 +31,14 @@
                             <label>E-mail:</label><br>
                             <input type="email" name="email" value="{{$user->email}}"><br><br>
 
-                            <label>User Role:</label><br>
-                            <select name="role">
-                                @@foreach ($collection as $item)
-                                    
-                                @endforeach
-                                <option value="as">s</option>
-                            </select><br><br>
+                            @if($user_role !== 3)
+                                <label>User Role:</label><br>
+                                <select name="role">
+                                    @foreach ($roles as $role)
+                                    <option value="{{$role->id}}">{{$role->name}}</option>
+                                    @endforeach
+                                </select><br><br>                            
+                            @endif
 
                             <button onclick="window.location.href = '/users-list'" class="mt-2 btn btn-warning" style="float:left" type="button">Go Back</button>
                             <button class="mt-2 btn btn-primary" style="float:right" type="submit">Submit</button>

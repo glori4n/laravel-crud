@@ -48,7 +48,9 @@
                                 <th>Name</th>
                                 <th>E-mail</th>
                                 <th>Updated At</th>
+                                @if($user_role !== 3)
                                 <th>Actions</th>
+                                @endif
                             </tr>
 
                             @foreach ($users as $user)
@@ -57,10 +59,12 @@
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->email}}</td>
                                     <td>{{$user->updated_at}}</td>
+                                    @if($user->role_id !== 1 && $user_role !== 3 || $user_role == 1)
                                     <td style="white-space: nowrap">
                                         <a href="/user-edit/{{$user->id}}" class="btn btn-warning btn-xs">Edit</a>
                                         <a href="/user-delete/{{$user->id}}" class="btn btn-danger btn-xs">Delete</a>
                                     </td>
+                                    @endif
                                 </tr>
                             @endforeach
                         </table>

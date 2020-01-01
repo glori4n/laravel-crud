@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Role;
+use Auth;
 
 class UserController extends Controller
 {
@@ -12,7 +13,8 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('users.show', compact('users'));
+        $user_role = Auth::user()->role_id;
+        return view('users.show', compact('users', 'user_role'));
     }
     public function create(Request $request)
     {
@@ -46,9 +48,13 @@ class UserController extends Controller
         $id = $request->id;
         $user = User::where('id', $id)->first();
         $roles = Role::all();
-        $user_role = Role::where('name', $user->role_id)->first();
+        $user_role = Auth::user()->role_id;
         
-        return view('users.edit', compact('id', 'user', 'role', 'user_role'));
+        if($user->role_id !== 1 && $user_role !== 3 || $user_role == 1){
+            return view('users.edit', compact('id', 'user', 'roles', 'user_role'));
+        }else{
+            return redirect('users-list');
+        }
 
     }
 
@@ -58,12 +64,14 @@ class UserController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'email' => 'required',
+            'role' => 'required'
         ]);
 
         $user = User::find($id);
 
         $user->name = $validatedData['name'];
         $user->email = $validatedData['email'];
+        $user->role_id = $validatedData['role'];
         $user->update();
 
         $message = 'User with the ID:'.$id.' updated successfully.';
@@ -75,12 +83,20 @@ class UserController extends Controller
 
     public function delete($id)
     {
-        $user = User::find($id);
-        $user->delete();
-
-        $message = $user->name.' deleted successfully.';
-        session(['message' => $message]);
         
-        return redirect('users-list');
+        $user = User::find($id);
+        $user_role = Auth::user()->role_id;
+
+        if($user->role_id !== 1 && $user_role !== 3 || $user_role == 1){
+            $user->delete();
+
+            $message = $user->name.' deleted successfully.';
+            session(['message' => $message]);
+            
+            return redirect('users-list');
+        }else{
+            return redirect('users-list');
+        }
+        
     }
 }
