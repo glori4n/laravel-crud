@@ -1,5 +1,5 @@
 # laravel-crud
-This project was made by © Glori4n(https://glori4n.com).
+This project was made by © Glori4n(https://glori4n.net).
 
 An user crud made on Laravel that applies most of the concepts involved in the standard creation of such, the objective of this project is to have a template CRUD system made with Laravel, mySQL and HTML, as well as having a login system using Laravel's Auth, it also have permissions with 3 levels of access:
 
